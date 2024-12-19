@@ -38,7 +38,7 @@
 
 // i2c driver to use ( dummy - disables i2c )
 // hardware i2c used PB6 and 7 by default ( can also use PA9 and 10)
-//#define USE_HARDWARE_I2C
+#define USE_HARDWARE_I2C
 //#define USE_SOFTWARE_I2C
 //#define USE_DUMMY_I2C
 
@@ -60,14 +60,14 @@
 
 // pins for hw i2c , select one only
 // select pins PB6 and PB7 OR select pins PA9 and PA10
-//#define HW_I2C_PINS_PB67
-#define HW_I2C_PINS_PA910
+#define HW_I2C_PINS_PB67
+//#define HW_I2C_PINS_PA910
 
 // pins for software i2c
-#define SOFTI2C_SDAPIN GPIO_Pin_10
-#define SOFTI2C_SDAPORT GPIOA
-#define SOFTI2C_SCLPIN GPIO_Pin_9
-#define SOFTI2C_SCLPORT GPIOA
+#define SOFTI2C_SDAPIN GPIO_Pin_7
+#define SOFTI2C_SDAPORT GPIOB
+#define SOFTI2C_SCLPIN GPIO_Pin_6
+#define SOFTI2C_SCLPORT GPIOB
 #define SOFTI2C_GYRO_ADDRESS 0x68
 
 
@@ -118,40 +118,40 @@
 //#define PWM_PA1
 //#define PWM_PA2
 //#define PWM_PA3
-#define PWM_PA4
+//#define PWM_PA4
 //#define PWM_PA5
-#define PWM_PA6
-#define PWM_PA7
-//#define PWM_PA8
-//#define PWM_PA9
-//#define PWM_PA10
-//#define PWM_PA11
+//#define PWM_PA6
+//#define PWM_PA7
+#define PWM_PA8
+#define PWM_PA9
+#define PWM_PA10
+#define PWM_PA11
 //#define PWM_PB0
-#define PWM_PB1
+//#define PWM_PB1
 
 
 // RGB led type ws2812 - ws2813
 // numbers over 8 could decrease performance
-#define RGB_LED_NUMBER 0
+#define RGB_LED_NUMBER 8
 #define RGB_LED_DMA
 
 
 // pin / port for the RGB led ( programming port ok )
-#define RGB_PIN GPIO_Pin_11
-#define RGB_PORT GPIOA
+#define RGB_PIN GPIO_Pin_0
+#define RGB_PORT GPIOB
 
 
 // pin for fpv switch ( turns off at failsafe )
 // GPIO_Pin_13 // SWDAT - GPIO_Pin_14 // SWCLK  
 // if programming pin, will not flash after bind
-#define FPV_PIN GPIO_Pin_13
+#define FPV_PIN GPIO_Pin_12
 #define FPV_PORT GPIOA 
 
 
 // BUZZER pin settings - buzzer active "high"
 // SWDAT and SWCLK pins OK here
 // GPIO_Pin_13 // SWDAT - GPIO_Pin_14 // SWCLK 
-#define BUZZER_PIN       GPIO_Pin_14
-#define BUZZER_PIN_PORT  GPIOA
+#define BUZZER_PIN       GPIO_Pin_2
+#define BUZZER_PIN_PORT  GPIOB
 // x (micro)seconds after loss of tx or low bat before buzzer starts
 #define BUZZER_DELAY     30e6 
