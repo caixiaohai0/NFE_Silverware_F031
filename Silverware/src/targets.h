@@ -412,3 +412,74 @@
 #define MOTOR2_PIN_PB1 // motor 2 back-right
 #define MOTOR3_PIN_PA7 // motor 3 front-right
 #endif
+
+#ifdef Silverware FC_V1.0
+//LEDS
+#define LED_NUMBER 1
+#define LED1PIN GPIO_Pin_0
+#define LED1PORT GPIOF
+
+//SOFT I2C & GYRO
+#define USE_HARDWARE_I2C
+#define GYRO_ID_1 0x68
+#define GYRO_ID_2 0x78 
+#define GYRO_ID_3 0x7D
+#define GYRO_ID_4 0x72
+//#define SENSOR_ROTATE_45_CCW
+//#define SENSOR_ROTATE_45_CW
+//#define SENSOR_ROTATE_90_CCW
+//#define SENSOR_ROTATE_180
+//#define SENSOR_FLIP_180
+
+// SPI PINS DEFINITONS & RADIO
+#if defined(RX_SBUS) || defined(RX_DSMX_2048) || defined(RX_DSM2_1024) || defined(RX_CRSF) || defined(RX_IBUS)
+#define SERIAL_RX_SPEKBIND_BINDTOOL_PIN GPIO_Pin_2
+#define SERIAL_RX_SPEKBIND_RX_PIN GPIO_Pin_3
+#define SERIAL_RX_PIN GPIO_Pin_3
+#define SERIAL_RX_PORT GPIOA
+#define SERIAL_RX_SOURCE GPIO_PinSource3
+#define SERIAL_RX_CHANNEL GPIO_AF_1
+#define SOFTSPI_NONE
+//dummy spi placeholders
+#define SPI_MOSI_PIN GPIO_Pin_x
+#define SPI_MOSI_PORT GPIOA
+#define SPI_CLK_PIN GPIO_Pin_y
+#define SPI_CLK_PORT GPIOA
+#define SPI_SS_PIN GPIO_Pin_z
+#define SPI_SS_PORT GPIOA
+#define RADIO_CHECK
+#else
+#define SOFTSPI_4WIRE
+#define SPI_MOSI_PIN GPIO_Pin_7
+#define SPI_MOSI_PORT GPIOA
+#define SPI_MISO_PIN GPIO_Pin_6
+#define SPI_MISO_PORT GPIOA
+#define SPI_CLK_PIN GPIO_Pin_5
+#define SPI_CLK_PORT GPIOA
+#define SPI_SS_PIN GPIO_Pin_4
+#define SPI_SS_PORT GPIOA
+#define RADIO_XN297
+#define RADIO_CHECK
+#endif
+
+//VOLTAGE DIVIDER
+#define BATTERYPIN GPIO_Pin_0
+#define BATTERYPORT GPIOA
+#define BATTERY_ADC_CHANNEL ADC_Channel_0
+//#define ADC_SCALEFACTOR 0.00741211
+#ifndef VOLTAGE_DIVIDER_R1
+#define VOLTAGE_DIVIDER_R1 2000
+#endif
+#ifndef VOLTAGE_DIVIDER_R2
+#define VOLTAGE_DIVIDER_R2 1000
+#endif
+#ifndef ADC_REF_VOLTAGE
+#define ADC_REF_VOLTAGE 3.3
+#endif
+
+// Assingment of pin to motor
+#define MOTOR0_PIN_PA11 // motor 0 back-left
+#define MOTOR1_PIN_PA9 // motor 1 front-left
+#define MOTOR2_PIN_PA10 // motor 2 back-right
+#define MOTOR3_PIN_PA8 // motor 3 front-right
+#endif
